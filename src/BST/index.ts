@@ -127,33 +127,3 @@ export class BST<T> {
     return { isBalanced: isBalanced && sub, depth: height };
   }
 }
-
-interface MyData {
-  a: number;
-  b: number;
-  distance: number;
-}
-
-export const example = () => {
-  const bst = new BST<MyData>(
-    (a, b) => {
-      return a.distance < b.distance;
-    },
-    (a, b) => a.distance === b.distance,
-  );
-
-  bst.insert({ a: 2, b: 1, distance: 3 });
-  bst.insert({ a: 1, b: 1, distance: 2 });
-  bst.insert({ a: 3, b: 1, distance: 1 });
-  bst.insert({ a: 4, b: 1, distance: 4 });
-  bst.insert({ a: 5, b: 1, distance: 5 });
-  // console.log(bst.search({ a: 5, b: 1, distance: 5 }));
-  // bst.delete({ a: 5, b: 1, distance: 5 });
-  // console.log(bst.search({ a: 5, b: 1, distance: 5 }));
-
-  if (bst.isBalanced().isBalanced) {
-    console.log('Tree is balanced');
-  } else {
-    console.log('Tree is not balanced');
-  }
-};
