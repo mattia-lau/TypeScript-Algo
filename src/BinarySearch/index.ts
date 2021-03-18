@@ -13,10 +13,3 @@ export class BinarySearch {
     }
   }
 }
-
-export const example = () => {
-  const ary = [1, 5, 9, 20, 30, 40, 45];
-
-  const bs = new BinarySearch(ary);
-  console.log(bs.search(40));
-};
