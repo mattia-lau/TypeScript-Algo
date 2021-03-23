@@ -4,6 +4,63 @@ export class LinkedListNode<T> {
   prev: LinkedListNode<T> = null;
 }
 
+export class SingleLinkedList<T> {
+  head: LinkedListNode<T> = null;
+
+  constructor(array: T[]) {
+    for (const row of array) {
+      this.push(row);
+    }
+  }
+
+  push(data: T) {
+    const node = new LinkedListNode<T>();
+    let last = this.head;
+    node.data = data;
+
+    if (this.head == null) {
+      this.head = node;
+      return;
+    }
+
+    while (last.next !== null) {
+      last = last.next;
+    }
+    last.next = node;
+    node.prev = last;
+  }
+
+  wiseSwap() {
+    let current = this.head;
+    while (current && current.next) {
+      const temp = current.data;
+      current.data = current.next.data;
+      current.next.data = temp;
+      current = current.next.next;
+    }
+  }
+
+  reverseList(head: LinkedListNode<T> = this.head): LinkedListNode<T> | null {
+    if (!head || !head.next) return head;
+
+    const rest = this.reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+
+    return rest;
+  }
+
+  print(head: LinkedListNode<T> = this.head) {
+    let res = '';
+    let current = head;
+
+    while (current) {
+      res += JSON.stringify(current.data);
+      current = current.next;
+    }
+  }
+}
+
 export class DoublyLinkedList<T> {
   head: LinkedListNode<T> = null;
 
@@ -17,7 +74,6 @@ export class DoublyLinkedList<T> {
       res += JSON.stringify(current.data);
       current = current.next;
     }
-    console.log(res);
   }
 
   /**
