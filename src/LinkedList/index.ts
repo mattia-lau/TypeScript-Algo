@@ -163,7 +163,6 @@ export class DoublyCircularLinkedList<T> {
 
       if (temp === start) break;
     }
-    console.log(res);
     return res;
   }
 

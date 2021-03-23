@@ -1,0 +1,18 @@
+import { kidsWithCandies } from '../../../src/leetcode';
+
+describe('1431. Kids With the Greatest Number of Candies', () => {
+  it('[2,3,5,1,3] 3 [true,true,true,false,true] ', () => {
+    const result = kidsWithCandies([2, 3, 5, 1, 3], 3);
+    expect(result).toEqual([true, true, true, false, true]);
+  });
+
+  it('[4,2,1,1,2] 1 [true,false,false,false,false]  ', () => {
+    const result = kidsWithCandies([4, 2, 1, 1, 2], 1);
+    expect(result).toEqual([true, false, false, false, false]);
+  });
+
+  it('[12,1,12] 10 [true,false,true]', () => {
+    const result = kidsWithCandies([12, 1, 12], 10);
+    expect(result).toEqual([true, false, true]);
+  });
+});
